@@ -4,7 +4,7 @@
 
 select = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
 selector:
-	nx workspace-schematic selector 1 --projectname=$(sto)
+	nx workspace-schematic selector 1 --projectname=$(select)
 
 act = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
 action:
