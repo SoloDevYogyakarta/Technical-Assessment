@@ -2,14 +2,14 @@ import {<%= className.toLowerCase().replace("validation", "") %>ValidationDto} f
 
 describe("<%= className %>", () => {
     it("should be defined", () => {
-        expect(<%= className%>).toBeDefined()
+        expect(<%= className.toLowerCase() %>ValidationDto).toBeDefined()
     })
 
     it("should be valid", () => {
-        const validation = <%= className.toLowerCase().replace("validation", "")%>ValidationDto.setValue({
+        <%= className.toLowerCase().replace("validation", "")%>ValidationDto.setValue({
             initialName: "Hello Worlds"
         })
-        expect(validation.value).toEqual({initialName: "Hello Worlds"})
-        expect(validation.status).toEqual("VALID")
+        expect(<%= className.toLowerCase().replace("validation","")%>ValidationDto.value).toEqual({initialName: "Hello Worlds"})
+        expect(<%= className.toLowerCase().replace("validation","")%>ValidationDto.status).toEqual("VALID")
     })
 })
