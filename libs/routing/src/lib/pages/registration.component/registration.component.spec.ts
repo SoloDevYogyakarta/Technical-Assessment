@@ -4,6 +4,7 @@ import {
   TestBedStatic,
   ComponentFixture,
 } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('RegistrationComponent', () => {
   let container: TestBedStatic;
@@ -11,7 +12,7 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async () => {
     container = await TestBed.configureTestingModule({
-      imports: [],
+      imports: [FormsModule],
       declarations: [RegistrationComponent],
     }).compileComponents();
 
@@ -30,8 +31,8 @@ describe('RegistrationComponent', () => {
 
   it('should render title', () => {
     const template = component.nativeElement as HTMLElement;
-    expect(template.querySelector('div')?.textContent).toContain(
-      'RegistrationComponent'
+    expect(template.querySelector('form')?.textContent).toContain(
+      'Registration now !'
     );
   });
 

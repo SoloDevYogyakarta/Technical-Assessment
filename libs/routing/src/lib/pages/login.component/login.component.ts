@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-component',
@@ -7,5 +8,20 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   title = 'LoginComponent';
 
-  constructor() {}
+  @Input() email = '';
+  emailInvalid = false;
+  @Input() password = '';
+  passwordInvalid = false;
+
+  constructor(private router: Router) {}
+
+  onNavigate(path: string) {
+    this.router.navigateByUrl(path);
+  }
+
+  submit() {
+    if (this.email !== 'technical@admin.com' && this.password !== 'password') {
+    } else {
+    }
+  }
 }

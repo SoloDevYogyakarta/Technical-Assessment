@@ -1,1 +1,48 @@
-<div>LoginComponent is works!</div>
+<form
+  class="w-full flex items-center justify-center flex-col"
+  (ngSubmit)="submit()"
+>
+  <h1 class="text-gray-600 text-2xl font-semibold py-16 capitalize">
+    Log in now !
+  </h1>
+  <div class="w-full max-w-md">
+    <label for="email" class="font-sans font-semibold text-sm text-gray-500"
+      >Email Address</label
+    >
+    <input
+      type="text"
+      name="email"
+      id="email"
+      class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
+      placeholder="Email Address"
+      [(ngModel)]="email"
+      (ngModelChange)="email = $event"
+    />
+    <label for="password" class="font-sans font-semibold text-sm text-gray-500"
+      >Password</label
+    >
+    <input
+      type="text"
+      name="password"
+      id="password"
+      class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
+      placeholder="Password"
+      [(ngModel)]="password"
+      (ngModelChange)="password = $event"
+    />
+    <div class="flex items-center flex-col justify-center">
+      <button
+        type="submit"
+        class="w-full py-2 rounded-lg bg-material text-white"
+      >
+        Sign in
+      </button>
+      <a
+        class="text-center font-sans text-sm text-gray-600 transition duration-500 cursor-pointer hover:text-blue-400 mt-4"
+        (click)="onNavigate('accounts/registration')"
+      >
+        You don't have an account?
+      </a>
+    </div>
+  </div>
+</form>

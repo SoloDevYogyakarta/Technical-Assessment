@@ -3,10 +3,93 @@
 exports[`RegistrationComponent should render snapshot 1`] = `
 <registration-component
   __ngContext__="0"
+  confirmation=""
+  email=""
+  fullname=""
+  password=""
+  router={[Function Router]}
   title={[Function String]}
 >
-  <div>
-    RegistrationComponent is works!
-  </div>
+  <form
+    class="w-full flex items-center justify-center flex-col ng-untouched ng-pristine ng-valid"
+    novalidate=""
+  >
+    <h1
+      class="text-gray-600 text-2xl font-semibold py-16 capitalize"
+    >
+       Registration now ! 
+    </h1>
+    <div
+      class="w-full max-w-md"
+    >
+      <label
+        class="font-sans font-semibold text-sm text-gray-500"
+        for="fullname"
+      >
+        Full name
+      </label>
+      <input
+        class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3 ng-untouched ng-pristine ng-valid"
+        id="fullname"
+        name="fullname"
+        placeholder="Full name"
+        type="text"
+      />
+      <label
+        class="font-sans font-semibold text-sm text-gray-500"
+        for="email"
+      >
+        Email Address
+      </label>
+      <input
+        class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3 ng-untouched ng-pristine ng-valid"
+        id="email"
+        name="email"
+        placeholder="Email Address"
+        type="text"
+      />
+      <label
+        class="font-sans font-semibold text-sm text-gray-500"
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3 ng-untouched ng-pristine ng-valid"
+        id="password"
+        name="password"
+        placeholder="Password"
+        type="password"
+      />
+      <label
+        class="font-sans font-semibold text-sm text-gray-500"
+        for="confirmation"
+      >
+        Confirmation
+      </label>
+      <input
+        class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3 ng-untouched ng-pristine ng-valid"
+        id="confirmation"
+        name="confirmation"
+        placeholder="Confirmation"
+        type="password"
+      />
+      <div
+        class="flex items-center flex-col justify-center"
+      >
+        <button
+          class="w-full py-2 rounded-lg bg-material text-white"
+          type="submit"
+        >
+           Sign ip 
+        </button>
+        <a
+          class="text-center font-sans text-sm text-gray-600 transition duration-500 cursor-pointer hover:text-blue-400 mt-4"
+        >
+           You have an account? 
+        </a>
+      </div>
+    </div>
+  </form>
 </registration-component>
 `;

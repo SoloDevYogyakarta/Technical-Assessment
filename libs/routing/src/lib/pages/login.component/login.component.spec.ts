@@ -4,6 +4,7 @@ import {
   TestBedStatic,
   ComponentFixture,
 } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('LoginComponent', () => {
   let container: TestBedStatic;
@@ -11,7 +12,7 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     container = await TestBed.configureTestingModule({
-      imports: [],
+      imports: [FormsModule],
       declarations: [LoginComponent],
     }).compileComponents();
 
@@ -30,8 +31,8 @@ describe('LoginComponent', () => {
 
   it('should render title', () => {
     const template = component.nativeElement as HTMLElement;
-    expect(template.querySelector('div')?.textContent).toContain(
-      'LoginComponent'
+    expect(template.querySelector('form')?.textContent).toContain(
+      'Log in now !'
     );
   });
 
