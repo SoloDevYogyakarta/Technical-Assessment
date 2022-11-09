@@ -1,7 +1,7 @@
-import {Component} from '@angular/common'
+import {Component} from '@angular/core'
 
 @Component({
-    name: "<%= className.toLowerCase().replace("component","") %>-component",
+    selector: "<%= className.toLowerCase().replace("component","") %>-component",
     templateUrl: "<%= fileName %>.html"
 })
 export class <%= className %> {
