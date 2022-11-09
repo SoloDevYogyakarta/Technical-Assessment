@@ -2,15 +2,15 @@
 
 clas = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
 class:
-	nx workspace-schematic class 1 --project=$(clas)
+	nx workspace-schematic class 1 --projectname=$(clas)
 
 func = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
 function:
-	nx workspace-schematic function 1 --project=$(func)
+	nx workspace-schematic function 1 --projectname=$(func)
 
 com = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
 component:
-	nx workspace-schematic component 1 --project=$(com)
+	nx workspace-schematic component 1 --projectname=$(com)
 
 
 # Git command
