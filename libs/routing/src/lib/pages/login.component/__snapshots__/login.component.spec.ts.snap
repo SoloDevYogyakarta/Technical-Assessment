@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginComponent should render snapshot 1`] = `
+<login-component
+  __ngContext__="0"
+  title={[Function String]}
+>
+  <div>
+    LoginComponent is works!
+  </div>
+</login-component>
+`;

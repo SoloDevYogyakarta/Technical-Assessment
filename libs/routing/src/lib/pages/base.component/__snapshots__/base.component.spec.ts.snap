@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseComponent should render snapshot 1`] = `
+<base-component
+  __ngContext__="0"
+  title={[Function String]}
+>
+  <div>
+    BaseComponent is works!
+  </div>
+</base-component>
+`;
