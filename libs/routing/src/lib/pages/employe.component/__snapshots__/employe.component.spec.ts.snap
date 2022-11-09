@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmployeComponent should render snapshot 1`] = `
+<employe-component
+  __ngContext__="0"
+  title={[Function String]}
+>
+  <div>
+    EmployeComponent is works!
+  </div>
+</employe-component>
+`;

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationComponent should render snapshot 1`] = `
+<notification-component
+  __ngContext__="0"
+  message=""
+  notification={[Function NotificationService]}
+  open="0"
+  status="false"
+  title=""
+>
+  <div
+    class="w-full max-w-sm bg-white fixed bottom-1 left-1 rounded-lg p-2 shadow-md hidden flex-none"
+    id="notification-testid"
+  >
+    <div
+      class="w-full bg-red-600 rounded-md p-2 relative"
+    >
+      <div
+        class="absolute top-1 right-1"
+      >
+        <x-mark-solid-icon
+          class="cursor-pointer"
+          color="white"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            style="width: 22px; height: 22px; color: white;"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </x-mark-solid-icon>
+      </div>
+      <label
+        class="text-white font-semibold"
+        for="title"
+        id="notification-title-testid"
+      >
+      </label>
+      <p
+        class="text-white text-sm"
+        id="notification-message-testid"
+      >
+      </p>
+    </div>
+  </div>
+</notification-component>
+`;

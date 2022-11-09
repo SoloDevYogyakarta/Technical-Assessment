@@ -1,6 +1,7 @@
 <form
   class="w-full flex items-center justify-center flex-col"
   (ngSubmit)="submit()"
+  [formGroup]="form"
 >
   <h1 class="text-gray-600 text-2xl font-semibold py-16 capitalize">
     Registration now !
@@ -14,9 +15,11 @@
       name="fullname"
       id="fullname"
       class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
+      [ngClass]="
+        form.get('fullname')?.status === 'VALID' ? '' : 'border-red-500'
+      "
       placeholder="Full name"
-      [(ngModel)]="fullname"
-      (ngModelChange)="fullname = $event"
+      formControlName="fullname"
     />
     <label for="email" class="font-sans font-semibold text-sm text-gray-500"
       >Email Address</label
@@ -27,8 +30,8 @@
       id="email"
       class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
       placeholder="Email Address"
-      [(ngModel)]="email"
-      (ngModelChange)="email = $event"
+      formControlName="email"
+      [ngClass]="form.get('email')?.status === 'VALID' ? '' : 'border-red-500'"
     />
     <label for="password" class="font-sans font-semibold text-sm text-gray-500"
       >Password</label
@@ -39,8 +42,10 @@
       id="password"
       class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
       placeholder="Password"
-      [(ngModel)]="password"
-      (ngModelChange)="password = $event"
+      formControlName="password"
+      [ngClass]="
+        form.get('password')?.status === 'VALID' ? '' : 'border-red-500'
+      "
     />
     <label
       for="confirmation"
@@ -53,15 +58,17 @@
       id="confirmation"
       class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
       placeholder="Confirmation"
-      [(ngModel)]="confirmation"
-      (ngModelChange)="confirmation = $event"
+      formControlName="confirmation"
+      [ngClass]="
+        form.get('confirmation')?.status === 'VALID' ? '' : 'border-red-500'
+      "
     />
     <div class="flex items-center flex-col justify-center">
       <button
         type="submit"
         class="w-full py-2 rounded-lg bg-material text-white"
       >
-        Sign ip
+        Sign up
       </button>
       <a
         class="text-center font-sans text-sm text-gray-600 transition duration-500 cursor-pointer hover:text-blue-400 mt-4"

@@ -1,17 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { loginValidationDto } from '@nov9-technical-assessment/accounts';
 
 @Component({
   selector: 'login-component',
   templateUrl: 'login.component.html',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   title = 'LoginComponent';
-
-  @Input() email = '';
-  emailInvalid = false;
-  @Input() password = '';
-  passwordInvalid = false;
+  form: FormGroup = loginValidationDto;
 
   constructor(private router: Router) {}
 
@@ -19,9 +17,9 @@ export class LoginComponent {
     this.router.navigateByUrl(path);
   }
 
-  submit() {
-    if (this.email !== 'technical@admin.com' && this.password !== 'password') {
-    } else {
-    }
+  submit() {}
+
+  ngOnInit(): void {
+    this.form = loginValidationDto;
   }
 }

@@ -1,0 +1,34 @@
+<div
+  class="w-full max-w-sm bg-white fixed bottom-1 left-1 rounded-lg p-2 shadow-md"
+  id="notification-testid"
+  [ngClass]="
+    open === 0
+      ? 'hidden flex-none'
+      : open === 1
+      ? 'notification-open'
+      : 'notification-close'
+  "
+>
+  <div
+    class="w-full bg-red-600 rounded-md p-2 relative"
+    [ngClass]="status ? 'bg-green-600' : ''"
+  >
+    <div class="absolute top-1 right-1">
+      <x-mark-solid-icon
+        [size]="22"
+        class="cursor-pointer"
+        (click)="onclose()"
+        color="white"
+      ></x-mark-solid-icon>
+    </div>
+    <label
+      for="title"
+      id="notification-title-testid"
+      class="text-white font-semibold"
+      >{{ title }}</label
+    >
+    <p id="notification-message-testid" class="text-white text-sm">
+      {{ message }}
+    </p>
+  </div>
+</div>

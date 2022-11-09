@@ -1,0 +1,31 @@
+.notification-open {
+  transition: all;
+  animation: notification-open 1s forwards;
+}
+
+.notification-close {
+  transition: all;
+  animation: notification-close 1s forwards;
+}
+
+@keyframes notification-open {
+  from {
+    left: -1200px;
+    bottom: 10px;
+  }
+  to {
+    left: 10px;
+    bottom: 10px;
+  }
+}
+
+@keyframes notification-close {
+  from {
+    left: 10px;
+    bottom: 10px;
+  }
+  to {
+    left: -1200px;
+    bottom: 10px;
+  }
+}

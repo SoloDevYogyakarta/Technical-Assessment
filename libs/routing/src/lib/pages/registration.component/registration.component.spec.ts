@@ -4,7 +4,8 @@ import {
   TestBedStatic,
   ComponentFixture,
 } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotificationService } from '@nov9-technical-assessment/shared/ui';
 
 describe('RegistrationComponent', () => {
   let container: TestBedStatic;
@@ -12,8 +13,9 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async () => {
     container = await TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [FormsModule, ReactiveFormsModule],
       declarations: [RegistrationComponent],
+      providers: [NotificationService],
     }).compileComponents();
 
     component = TestBed.createComponent(RegistrationComponent);
