@@ -1,5 +1,9 @@
 # Workspace command
 
+type = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
+types:
+	nx workspace-schematic types 1 --projectname=$(type)
+
 valid = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
 validation:
 	nx workspace-schematic validation 1 --projectname=$(valid)
