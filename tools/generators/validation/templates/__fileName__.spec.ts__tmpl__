@@ -2,7 +2,7 @@ import {<%= className.toLowerCase().replace("validation", "") %>ValidationDto} f
 
 describe("<%= className %>", () => {
     it("should be defined", () => {
-        expect(<%= className.toLowerCase() %>ValidationDto).toBeDefined()
+        expect(<%= className.toLowerCase().replace("validation","") %>ValidationDto).toBeDefined()
     })
 
     it("should be valid", () => {
