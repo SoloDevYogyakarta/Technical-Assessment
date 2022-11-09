@@ -1,5 +1,9 @@
 # Workspace command
 
+injec = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
+injectable:
+	nx workspace-schematic injectable 1 --projectname=$(injec)
+
 clas = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
 class:
 	nx workspace-schematic class 1 --projectname=$(clas)
