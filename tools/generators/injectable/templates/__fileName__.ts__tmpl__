@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core'
 
 @Injectable({
-    providerIn: "root"
+    provideIn: "root"
 })
 export class <%= className %> {
     constructor() {}
