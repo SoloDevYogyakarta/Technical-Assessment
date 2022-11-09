@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nov9-technical-assessment/routing": ["libs/routing/src/index.ts"],
+      "@nov9-technical-assessment/stores": ["libs/stores/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
