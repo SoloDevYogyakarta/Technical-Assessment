@@ -1,0 +1,5 @@
+import {FormGroup,FormControl,Validators} from '@angular/forms'
+
+export const <%= className.toLowerCase().replace("validation","") %>ValidationDto = new FormGroup({
+    initialName: new FormControl("initialName",Validators.minLength(2))
+})
