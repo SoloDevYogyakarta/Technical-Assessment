@@ -1,0 +1,16 @@
+import {<%= className %>} from './<%= fileName %>'
+import {TestBed,TestBedStatic} from '@angular/core/testing'
+
+describe("<%= className%>", () => {
+    let container:TestBedStatic;
+
+    beforeEach(async () => {
+        container = await TestBed.configureTestingModule({
+            imports: []
+        }).compileComponents()
+    })
+
+    afterEach(async() => {
+        await jest.clearAllMocks()
+    })
+})
