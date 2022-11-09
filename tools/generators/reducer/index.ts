@@ -10,7 +10,7 @@ import { ISchema } from '../schema';
 
 export default async function (tree: Tree, schema: ISchema) {
   const workspace = getProjects(tree).get(schema.projectname);
-  const templatePath = 'tools/generators/store/reducer/templates';
+  const templatePath = 'tools/generators/reducer/templates';
   const directoryPath = schema.directoryname
     ? `${workspace?.sourceRoot}/lib/${schema.directoryname}`
     : `${workspace?.sourceRoot}/lib`;
