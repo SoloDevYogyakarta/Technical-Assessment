@@ -12,7 +12,7 @@ export default async function (tree: Tree, schema: ISchema) {
   const workspace = getProjects(tree).get(schema.projectname);
   const templatePath = 'tools/generators/validation/templates';
   const directoryPath = schema.directoryname
-    ? `${workspace?.sourceRoot}/lib/${schema.filename}`
+    ? `${workspace?.sourceRoot}/lib/${schema.directoryname}`
     : `${workspace?.sourceRoot}/lib`;
   const targetPath = join(directoryPath, schema.filename);
   const validationNames = names(schema.filename);
