@@ -1,0 +1,15 @@
+import {<%= className.toLowerCase().replace("validation", "") %>ValidationDto} from './<%= fileName %>'
+
+describe("<%= className %>", () => {
+    it("should be defined", () => {
+        expect(<%= className%>).toBeDefined()
+    })
+
+    it("should be valid", () => {
+        const validation = <%= className.toLowerCase().replace("validation", "")%>ValidationDto.setValue({
+            initialName: "Hello Worlds"
+        })
+        expect(validation.value).toEqual({initialName: "Hello Worlds"})
+        expect(validation.status).toEqual("VALID")
+    })
+})
