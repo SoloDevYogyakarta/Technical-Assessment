@@ -1,0 +1,15 @@
+import {createSelector} from '@ngrx/store'
+import {
+    I<%= className.split("Selector", "")[0] %>
+} from '../../constants/<%= className.toLowerCase().replace("selector","") %>-type'
+
+export interface <%= className.split("Selector","")[0] %>State {
+    <%= className.toLowerCase()%>: 
+}
+
+export const select<%= className.split("Selector", "")[0]%>Feature = (state: <%= className.split("Selector","")[0] %>State) => state.<%= className.toLowerCase().replace("Selector", "") %>
+
+export const select<%= className.split("Selector", "")[0] %> = createSelector(
+    select<%= className.split("Selector", "")[0] %>Feature,
+    (state: <%= className.split("Selector","")[0] %>State) => state
+)

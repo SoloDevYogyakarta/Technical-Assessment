@@ -1,0 +1,17 @@
+import {createReducer} from '@ngrx/store'
+import {
+    <%= className.toLowerCase().replace("reducer","") %>Action
+} from '../actions/<%= className.toLowerCase().replace("reducer", "") %>-action'
+import {
+    I<%= className.split("Reducer")[0] %>
+} from '../constants/<%= className.toLowerCase().replace("reducer", "") %>-type'
+
+const initialState: I<%= className.split("Reducer", "")[0] %> = {
+
+}
+
+export const <%= className.toLowerCase().replace("reducer","") %>Reducer = createReducer(initialState,
+    on(<%= className.toLowerCase().replace("reducer", "") %>Action,(state) => ({
+        ...state
+    }))
+)

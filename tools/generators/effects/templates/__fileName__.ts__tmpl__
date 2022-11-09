@@ -1,0 +1,23 @@
+import {Injectable} from '@angular/core'
+import {createEffect} from '@ngrx/effects'
+import {
+    <%= className.split("Effect")[0] %>Action
+} from '../../actions/<%= className.split("Effect","")[0] %>-action'
+import {
+    <%= className.split("Effect", "")[0]%>Service
+} from '../../services/<%= className.split("Effect","")[0]%>-service'
+
+@Injectable({
+    providedIn: 'root'
+})
+export class <%= className %>s {
+    constructor(
+        private action$: <%= className.split("Effect","")[0]%>Action,
+        private service$: <%= className.split("Effect","")[0] %>Service
+    ) {}
+
+    initialEffect = createEffect(() => this.actions$.pipe(
+        ofType('<%= className.split("Effect", "")[0] %>Action'),
+        mergeMap((data: any) => this.service$)
+    ))
+}
