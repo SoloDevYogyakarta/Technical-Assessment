@@ -4,6 +4,7 @@ exports[`LoginComponent should render snapshot 1`] = `
 <login-component
   __ngContext__="0"
   form={[Function FormGroup]}
+  notification={[Function NotificationService]}
   router={[Function Router]}
   title={[Function String]}
 >

@@ -1,26 +1,21 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-
-interface IState {
-  open: number;
-  title: string;
-  message: string;
-  status: boolean;
-}
+import { BehaviorSubject } from 'rxjs';
+import { INotification } from '../../constants/notification-type/notification-type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotificationService {
-  state: BehaviorSubject<IState> = new BehaviorSubject<IState>({
-    open: 0,
-    title: '',
-    message: '',
-    status: false,
-  });
+  public state: BehaviorSubject<INotification> =
+    new BehaviorSubject<INotification>({
+      open: 0,
+      title: '',
+      message: '',
+      status: false,
+    });
   constructor() {}
 
-  notificationChange(ctx: IState) {
+  notificationChange(ctx: INotification) {
     this.state.next(ctx);
   }
 }

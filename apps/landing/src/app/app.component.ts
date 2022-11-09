@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
     title: '',
     status: false,
   };
+  isActive = typeof localStorage.getItem('token') === 'string';
 
   constructor(
     private router: Router,
@@ -27,6 +28,11 @@ export class AppComponent implements OnInit {
 
   onNavigate(path: string) {
     this.router.navigateByUrl(path);
+  }
+
+  onLogout() {
+    localStorage.removeItem('token');
+    window.location.reload();
   }
 
   ngOnInit(): void {

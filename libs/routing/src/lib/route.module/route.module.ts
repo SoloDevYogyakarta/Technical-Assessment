@@ -5,6 +5,7 @@ import { DetailEmployeComponent } from '../pages/detail-employe.component/detail
 import { EmployeComponent } from '../pages/employe.component/employe.component';
 import { LoginComponent } from '../pages/login.component/login.component';
 import { RegistrationComponent } from '../pages/registration.component/registration.component';
+import { Authorized, Public } from '../services/authorized/authorized';
 
 export const routes: Route[] = [
   {
@@ -17,12 +18,12 @@ export const routes: Route[] = [
       {
         path: 'login',
         component: LoginComponent,
-        canActivate: [],
+        canActivate: [Public],
       },
       {
         path: 'registration',
         component: RegistrationComponent,
-        canActivate: [],
+        canActivate: [Public],
       },
     ],
   },
@@ -32,12 +33,12 @@ export const routes: Route[] = [
       {
         path: '',
         component: DetailEmployeComponent,
-        canActivate: [],
+        canActivate: [Authorized],
       },
       {
         path: 'list',
         component: EmployeComponent,
-        canActivate: [],
+        canActivate: [Authorized],
       },
     ],
   },

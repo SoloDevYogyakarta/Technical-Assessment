@@ -10,11 +10,12 @@
     <button
       type="button"
       class="w-32 py-[6px] bg-material font-semibold text-white font-sans rounded-lg mr-3 shadow-md"
-      (click)="onNavigate('accounts/login')"
+      (click)="isActive ? onLogout() : onNavigate('accounts/login')"
     >
-      Sign in
+      {{ isActive ? 'Log out' : 'Sign in' }}
     </button>
     <button
+      *ngIf="!isActive"
       type="button"
       class="w-32 py-[6px] bg-white font-semibld text-material font-sans rounded-lg shadow-md"
       (click)="onNavigate('accounts/registration')"
