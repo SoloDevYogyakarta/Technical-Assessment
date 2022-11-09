@@ -11,7 +11,7 @@ describe("<%= className%>", () => {
             declarations: [<%= className %>]
         }).compileComponents()
 
-        component = TestBed.createComponents(<%= className%>)
+        component = TestBed.createComponent(<%= className%>)
         component.detectChanges()
     })
 
@@ -20,7 +20,7 @@ describe("<%= className%>", () => {
     })
 
     it("should have as title '<%= className %>'", () => {
-        const template = component.instanceComponents
+        const template = component.componentInstance
         expect(template.title).toEqual("<%= className %>")
     })
 
