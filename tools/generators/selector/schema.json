@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "selector",
+  "type": "object",
+  "properties": {
+    "filename": {
+      "type": "string",
+      "description": "Write your file name ? ",
+      "x-prompt": {
+        "type": "string",
+        "message": "Write your file name"
+      },
+      "$default": {
+        "$source": "filename"
+      }
+    },
+    "directoryname": {
+      "type": "string",
+      "description": "Write your directory name ? ",
+      "x-prompt": {
+        "type": "string",
+        "message": "Write your directory name"
+      },
+      "$default": {
+        "$source": "directoryname"
+      }
+    },
+    "projectname": {
+      "type": "string",
+      "description": "Write your project name ? ",
+      "x-prompt": {
+        "type": "string",
+        "message": "Write your project name"
+      },
+      "$default": {
+        "$source": "projectname"
+      }
+    }
+  }
+}

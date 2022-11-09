@@ -1,3 +1,24 @@
+
+
+# Ngrx command
+
+select = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
+selector:
+	nx workspace-schematic selector 1 --projectname=$(sto)
+
+act = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
+action:
+	nx workspace-schematic actions 1 --projectname=$(act)
+
+redu = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
+reducer:
+	nx workspace-schematic reducer 1 --projectname=$(redu)
+
+effe = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
+effects:
+	nx workspace-schematic effects 1 --projectname=$(effe)
+
+
 # Workspace command
 
 type = $(shell bash -c 'read -p "Write your project name ? " talk; echo $$talk')
