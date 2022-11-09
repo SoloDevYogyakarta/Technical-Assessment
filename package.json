@@ -11,6 +11,14 @@
     "commit": "cz"
   },
   "private": true,
+  "author": {
+    "name": "Kenedy Nopriansyah",
+    "email": "kenedinvsyh_@outlook.co.id"
+  },
+  "engines": {
+    "npm": "8.19.2",
+    "node": "v18.12.1"
+  },
   "dependencies": {
     "@angular/animations": "~14.2.0",
     "@angular/common": "~14.2.0",
