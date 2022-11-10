@@ -1,0 +1,81 @@
+<form
+  class="w-full flex items-center justify-center flex-col"
+  (ngSubmit)="submit()"
+  [formGroup]="form"
+>
+  <h1 class="text-gray-600 text-2xl font-semibold py-16 capitalize">
+    Registration now !
+  </h1>
+  <div class="w-full max-w-md">
+    <label for="fullname" class="font-sans font-semibold text-sm text-gray-500"
+      >Full name</label
+    >
+    <input
+      type="text"
+      name="fullname"
+      id="fullname"
+      class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
+      [ngClass]="
+        form.get('fullname')?.status === 'VALID' ? '' : 'border-red-500'
+      "
+      placeholder="Full name"
+      formControlName="fullname"
+    />
+    <label for="email" class="font-sans font-semibold text-sm text-gray-500"
+      >Email Address</label
+    >
+    <input
+      type="text"
+      name="email"
+      id="email"
+      class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
+      placeholder="Email Address"
+      formControlName="email"
+      [ngClass]="form.get('email')?.status === 'VALID' ? '' : 'border-red-500'"
+    />
+    <label for="password" class="font-sans font-semibold text-sm text-gray-500"
+      >Password</label
+    >
+    <input
+      type="password"
+      name="password"
+      id="password"
+      class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
+      placeholder="Password"
+      formControlName="password"
+      [ngClass]="
+        form.get('password')?.status === 'VALID' ? '' : 'border-red-500'
+      "
+    />
+    <label
+      for="confirmation"
+      class="font-sans font-semibold text-sm text-gray-500"
+      >Confirmation</label
+    >
+    <input
+      type="password"
+      name="confirmation"
+      id="confirmation"
+      class="w-full outline-none border-[1px] border-gray-300 rounded-lg py-2 transition duration-500 hover:border-green-600 px-3 text-gray-500 mb-3"
+      placeholder="Confirmation"
+      formControlName="confirmation"
+      [ngClass]="
+        form.get('confirmation')?.status === 'VALID' ? '' : 'border-red-500'
+      "
+    />
+    <div class="flex items-center flex-col justify-center">
+      <button
+        type="submit"
+        class="w-full py-2 rounded-lg bg-material text-white"
+      >
+        Sign up
+      </button>
+      <a
+        class="text-center font-sans text-sm text-gray-600 transition duration-500 cursor-pointer hover:text-blue-400 mt-4"
+        (click)="onNavigate('/accounts/login')"
+      >
+        You have an account?
+      </a>
+    </div>
+  </div>
+</form>

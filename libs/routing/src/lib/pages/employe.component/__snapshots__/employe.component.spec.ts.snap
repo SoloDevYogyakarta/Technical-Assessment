@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmployeComponent should render snapshot 1`] = `
+<employe-component
+  __ngContext__="0"
+  list={[Function Store]}
+  store={[Function Store]}
+  title={[Function String]}
+>
+  <div
+    class="flex items-center justify-center flex-wrap"
+  >
+  </div>
+</employe-component>
+`;

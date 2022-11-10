@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@nov9-technical-assessment/accounts": ["libs/accounts/src/index.ts"],
+      "@nov9-technical-assessment/employe": ["libs/employe/src/index.ts"],
+      "@nov9-technical-assessment/routing": ["libs/routing/src/index.ts"],
+      "@nov9-technical-assessment/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@nov9-technical-assessment/stores": ["libs/stores/src/index.ts"],
+      "@nov9-technical-assessment/utils": ["libs/utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

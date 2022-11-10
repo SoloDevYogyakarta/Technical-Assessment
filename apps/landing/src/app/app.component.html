@@ -1,1 +1,28 @@
-<nov9-technical-assessment-nx-welcome></nov9-technical-assessment-nx-welcome>
+<notification-component
+  [open]="notif.open"
+  [title]="notif.title"
+  [message]="notif.message"
+  [status]="notif.status"
+></notification-component>
+
+<div class="w-full bg-white shadow-md py-4 flex items-center justify-end px-12">
+  <div class="flex items-center">
+    <button
+      type="button"
+      class="w-32 py-[6px] bg-material font-semibold text-white font-sans rounded-lg mr-3 shadow-md"
+      (click)="isActive ? onLogout() : onNavigate('accounts/login')"
+    >
+      {{ isActive ? 'Log out' : 'Sign in' }}
+    </button>
+    <button
+      *ngIf="!isActive"
+      type="button"
+      class="w-32 py-[6px] bg-white font-semibld text-material font-sans rounded-lg shadow-md"
+      (click)="onNavigate('accounts/registration')"
+    >
+      Sign up
+    </button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
