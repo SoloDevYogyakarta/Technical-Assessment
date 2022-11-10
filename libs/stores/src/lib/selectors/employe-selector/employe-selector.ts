@@ -1,15 +1,34 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import {
-  IEmploye,
-  IEmployeState,
-} from '../../constants/employe-type/employe-type';
+import { IEmployeState } from '../../constants/employe-type/employe-type';
 
-export const employe = (state: IEmployeState) => state.employe;
-
-export const selectEmployeFeature =
+export const employeFeatureSelector =
   createFeatureSelector<IEmployeState>('employe');
 
-export const selectEmployes = createSelector(selectEmployeFeature, (state) => {
-  const result = state.employes as unknown as { employes: IEmploye[] };
-  return result.employes;
-});
+export const employesSelector = createSelector(
+  employeFeatureSelector,
+  (state) => {
+    return state.employes;
+  }
+);
+
+export const employeIsLoadingSelector = createSelector(
+  employeFeatureSelector,
+  (state) => {
+    return state.isLoading;
+  }
+);
+
+export const employeErrorSelector = createSelector(
+  employeFeatureSelector,
+  (state) => state.error
+);
+
+export const employeSelector = createSelector(
+  employeFeatureSelector,
+  (state) => state.employe
+);
+
+export const filterEmployeSelector = createSelector(
+  employeFeatureSelector,
+  (state) => state.filterEmployes
+);

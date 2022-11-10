@@ -1,27 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import {
-  IEmploye,
-  ListEmployeAction,
-  selectEmployes,
-} from '@nov9-technical-assessment/stores';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import employes from './employes.json'
+import {
+  IEmployeState,
+  employesSelector,
+  getEmployes,
+  IEmploye,
+  employeIsLoadingSelector,
+  destroyEmploye,
+  getDetailEmploye,
+  filterEmploye,
+  filterEmployeSelector,
+} from '@nov9-technical-assessment/stores';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'employe-component',
   templateUrl: 'employe.component.html',
 })
-export class EmployeComponent implements OnInit {
+export class EmployeComponent implements OnInit, DoCheck {
   title = 'EmployeComponent';
-  list: Observable<IEmploye[]> = new Observable<IEmploye[]>
+  employe$: Observable<IEmploye[]> = new Observable<IEmploye[]>();
+  isLoading$: Observable<boolean> = new Observable<boolean>();
+  search: string = '';
 
-  constructor(private store: Store) {
-    this.list = this.store.select(selectEmployes)
+  constructor(private store: Store<IEmployeState>) {
+    this.employe$ = this.store.select(filterEmployeSelector);
+    this.isLoading$ = this.store.select(employeIsLoadingSelector);
   }
 
+  onDelete(username: string) {
+    this.store.dispatch(destroyEmploye({ username: username }));
+  }
+
+  getDetailEmploye(username: string) {
+    this.store.dispatch(getDetailEmploye({ username }));
+  }
 
   ngOnInit(): void {
-    this.store.dispatch(ListEmployeAction({employes: employes}))
+    this.store.dispatch(getEmployes());
+  }
+
+  ngDoCheck(): void {
+    this.store.dispatch(filterEmploye({ username: this.search }));
   }
 }

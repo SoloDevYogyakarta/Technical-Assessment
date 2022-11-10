@@ -1,0 +1,1 @@
+“username”: string, “firstName”:string, “lastName”:string, “email”:string, “birthDate”:datetime, “basicSalary”:double, “status”:string, “group”:string, “description”:datetime
