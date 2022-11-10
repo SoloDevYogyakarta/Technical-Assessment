@@ -4,6 +4,12 @@ import {
   TestBedStatic,
   ComponentFixture,
 } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { RouterTestingModule } from '@angular/router/testing';
+import { employeReducer } from '@nov9-technical-assessment/stores';
+import { routes } from '../../route.module/route.module';
+import { EmployeComponent } from '../employe.component/employe.component';
+import { NgHeroiconsModule } from '@dimaslz/ng-heroicons';
 
 describe('DetailEmployeComponent', () => {
   let container: TestBedStatic;
@@ -11,8 +17,12 @@ describe('DetailEmployeComponent', () => {
 
   beforeEach(async () => {
     container = await TestBed.configureTestingModule({
-      imports: [],
-      declarations: [DetailEmployeComponent],
+      imports: [
+        StoreModule.forRoot([employeReducer]),
+        RouterTestingModule.withRoutes(routes),
+        NgHeroiconsModule,
+      ],
+      declarations: [DetailEmployeComponent, EmployeComponent],
     }).compileComponents();
 
     component = TestBed.createComponent(DetailEmployeComponent);
@@ -30,9 +40,7 @@ describe('DetailEmployeComponent', () => {
 
   it('should render title', () => {
     const template = component.nativeElement as HTMLElement;
-    expect(template.querySelector('div')?.textContent).toContain(
-      'DetailEmployeComponent'
-    );
+    expect(template.querySelector('div')?.textContent).toContain('');
   });
 
   afterEach(async () => {

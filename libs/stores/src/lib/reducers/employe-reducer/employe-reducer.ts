@@ -1,69 +1,73 @@
 import { createReducer, on } from '@ngrx/store';
+import { IEmployeState } from '../../constants/employe-type/employe-type';
 import * as actions from '../../actions/employe-action/employe-action';
-import {
-  IEmploye,
-  IEmployeState,
-} from '../../constants/employe-type/employe-type';
 
-const initialState: IEmployeState = {
-  employes: [],
+export const initialState: IEmployeState = {
   employe: {
-    public_id: '',
     username: '',
     firstName: '',
     lastName: '',
     email: '',
     birthDate: '',
+    basicSalary: '',
     status: '',
     group: '',
     description: '',
   },
+  employes: [],
+  filterEmployes: [],
+  isLoading: false,
+  error: '',
 };
 
 export const employeReducer = createReducer(
   initialState,
-  on(
-    actions.ListEmployeAction,
-    (state: IEmployeState, action: { employes: IEmploye[] }) => ({
+  // Get List Employe
+  on(actions.getEmployes, (state) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(actions.getEmployesSuccess, (state, action) => {
+    return {
       ...state,
       employes: action.employes,
-    })
-  ),
-  on(
-    actions.DetailEmployeAction,
-    (state: IEmployeState, action: { public_id: string }) => ({
+      isLoading: action.isLoading,
+    };
+  }),
+  on(actions.getEmployesFailed, (state, action) => ({
+    ...state,
+    isLoading: action.isLoading,
+    error: action.error,
+  })),
+  // ======================================
+  on(actions.destroyEmploye, (state, action) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(actions.destroyEmployeSuccess, (state, action) => {
+    return {
       ...state,
       employes: state.employes.filter(
-        (item) => item.public_id === action.public_id
+        (employe) => employe.username !== action.username
       ),
-    })
-  ),
-  on(
-    actions.DestroyEmployeAction,
-    (state: IEmployeState, action: { public_id: string }) => ({
+      isLoading: action.isLoading,
+    };
+  }),
+  on(actions.getDetailEmployeSuccess, (state, action) => {
+    return {
       ...state,
-      employes: state.employes.filter(
-        (item) => item.public_id !== action.public_id
-      ),
-    })
-  ),
-  on(
-    actions.CreateEmployeAction,
-    (state: IEmployeState, action: { employe: IEmploye }) => ({
-      ...state,
-      employes: [...state.employes, action.employe],
-    })
-  ),
-  on(
-    actions.UpdateEmployeAction,
-    (
-      state: IEmployeState,
-      action: { public_id: string; employe: IEmploye }
-    ) => ({
-      ...state,
-      employes: state.employes.map((item) =>
-        item.public_id === action.public_id ? action.employe : item
-      ),
-    })
-  )
+      employe: state.employes.filter(
+        (employe) => employe.username === action.username
+      )[0],
+      isLoading: action.isLoading,
+    };
+  }),
+  on(actions.filterEmployeSuccess, (state, action) => ({
+    ...state,
+    filterEmployes: state.employes.filter(
+      (item) =>
+        item.username.toLowerCase().indexOf(action.username.toLowerCase()) > -1
+    ),
+    isLoading: action.isLoading,
+  }))
 );
