@@ -1,1 +1,42 @@
-<div>EmployeComponent is works!</div>
+<div class="flex items-center justify-center flex-wrap">
+  <div
+    *ngFor="let item of list | async"
+    class="w-full max-w-[330px] bg-white shadow-md rounded-md h-96 m-4 overflow-hidden"
+  >
+    <div class="w-full h-44 relative">
+      <img
+        src="https://api-prod-minimal-v4.vercel.app/assets/images/covers/cover_3.jpg"
+        alt=""
+        class="bg-center bg-cover bg-no-repeat"
+      />
+    </div>
+    <div class="relative h-20">
+      <div
+        class="w-24 h-24 bg-white shadow-md rounded-full absolute top-[-12px] left-[36%] overflow-hidden"
+      >
+        <img
+          src="https://api-prod-minimal-v4.vercel.app/assets/images/avatars/avatar_3.jpg"
+          alt=""
+          class="bg-center bg-cover bg-no-repeat"
+        />
+      </div>
+    </div>
+    <div class="w-full">
+      <p class="text-center text-gray-600 font-semibold mt-1">
+        {{ item.firstName }} {{ item.lastName }}
+      </p>
+      <p class="text-center text-gray-400 font-bold">
+        {{ item.status }}
+      </p>
+      <p class="text-center text-gray-600 text-sm font-semibold">
+        {{ item.birthDate | amDateFormat: 'LLL' }}
+      </p>
+      <div class="flex items-center justify-center mt-2">
+        <trash-solid-icon
+          class="text-red-500 transition duration-500 hover:text-red-700 cursor-pointer"
+          (click)="onDelete(item.public_id)"
+        ></trash-solid-icon>
+      </div>
+    </div>
+  </div>
+</div>

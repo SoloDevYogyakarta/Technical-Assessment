@@ -1,23 +1,24 @@
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  Router,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Authorized implements CanActivate {
-  constructor() {}
+  constructor(private router: Router, private location: Location) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    return typeof localStorage.getItem('token') === 'string';
+    const Authorization = typeof localStorage.getItem('token') === 'string';
+    return Authorization;
   }
 }
 
@@ -25,12 +26,18 @@ export class Authorized implements CanActivate {
   providedIn: 'root',
 })
 export class Public implements CanActivate {
-  constructor() {}
+  constructor(private router: Router, private location: Location) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    return typeof localStorage.getItem('token') !== 'string';
+    const Unauthorization = typeof localStorage.getItem('token') !== 'string';
+    if (!Unauthorization) {
+      if (this.location.path() === '') {
+        this.router.navigateByUrl('/employe/list');
+      }
+    }
+    return Unauthorization;
   }
 }

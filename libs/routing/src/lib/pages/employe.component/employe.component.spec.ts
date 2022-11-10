@@ -4,6 +4,8 @@ import {
   TestBedStatic,
   ComponentFixture,
 } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { employeReducer } from 'libs/stores/src/lib/reducers/employe-reducer/employe-reducer';
 
 describe('EmployeComponent', () => {
   let container: TestBedStatic;
@@ -11,7 +13,7 @@ describe('EmployeComponent', () => {
 
   beforeEach(async () => {
     container = await TestBed.configureTestingModule({
-      imports: [],
+      imports: [StoreModule.forRoot([employeReducer])],
       declarations: [EmployeComponent],
     }).compileComponents();
 
@@ -30,9 +32,7 @@ describe('EmployeComponent', () => {
 
   it('should render title', () => {
     const template = component.nativeElement as HTMLElement;
-    expect(template.querySelector('div')?.textContent).toContain(
-      'EmployeComponent'
-    );
+    expect(template.querySelector('div')?.textContent).toContain('');
   });
 
   afterEach(async () => {

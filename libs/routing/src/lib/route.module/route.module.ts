@@ -11,6 +11,7 @@ export const routes: Route[] = [
   {
     path: '',
     component: BaseComponent,
+    canActivate: [Public],
   },
   {
     path: 'accounts',

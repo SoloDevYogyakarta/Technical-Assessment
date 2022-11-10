@@ -1,4 +1,5 @@
 export interface IEmploye {
+  public_id: string;
   username: string;
   firstName: string;
   lastName: string;
@@ -7,4 +8,9 @@ export interface IEmploye {
   status: string;
   group: string;
   description: string;
+}
+
+export interface IEmployeState {
+  employes: IEmploye[];
+  employe: IEmploye;
 }

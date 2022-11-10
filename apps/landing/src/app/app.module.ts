@@ -9,6 +9,7 @@ import {
   SharedUiModule,
   NotificationService,
 } from '@nov9-technical-assessment/shared/ui';
+import { StoresModule } from '@nov9-technical-assessment/stores';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import {
       autoPause: true,
     }),
     EffectsModule.forRoot([]),
+    StoresModule,
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],
